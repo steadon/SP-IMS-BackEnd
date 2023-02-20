@@ -1,0 +1,25 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TypeMapper">
+
+
+    <insert id="addType">
+        insert into type(name)
+        values (#{type})
+    </insert>
+    <select id="selectNewId" resultType="java.lang.Integer">
+        select id
+        from type
+        order by id desc limit 1
+    </select>
+    <select id="selectName" resultType="java.lang.String">
+        select name
+        from type
+        where id = #{typeId} limit 1
+    </select>
+    <select id="selectByName" resultType="com.example.demo.dao.pojo.Type">
+        select *
+        from type
+        where name = #{name} limit 1
+    </select>
+
+</mapper>

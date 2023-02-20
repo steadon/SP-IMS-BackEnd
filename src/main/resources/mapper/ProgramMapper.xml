@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ProgramMapper">
+    <insert id="add">
+        insert into program(type_id, name, view)
+        values (#{typeId}, #{name}, #{point})
+    </insert>
+
+    <select id="selectAllByPage" resultType="com.example.demo.dao.result.ProgramResult">
+        select p.id   as id,
+               t.name as typeName,
+               p.name as `name`,
+               p.view as `view`
+        from program p
+                 left join type t on p.type_id = t.id
+            limit #{pageStart}, #{pageSize}
+    </select>
+    <select id="selectAll" resultType="com.example.demo.dao.result.ProgramSearchResult">
+        select p.id          as id,
+               t.name        as typeName,
+               p.name        as `name`,
+               p.view        as `view`,
+               count(pal.id) as num
+        from program p
+                 left join type t on p.type_id = t.id
+                 left join program_actor_list pal on p.id = pal.program_id
+        group by pal.program_id
+    </select>
+    <select id="selectNewId" resultType="java.lang.Integer">
+        select id
+        from program
+        order by id desc limit 1
+    </select>
+</mapper>
