@@ -4,6 +4,7 @@ import com.example.demo.dao.CommonResult;
 import com.example.demo.dao.param.AddParam;
 import com.example.demo.dao.pojo.Actor;
 import com.example.demo.dao.result.ProgramResult;
+import com.example.demo.dao.result.ProgramResultList;
 import com.example.demo.mapper.ActorMapper;
 import com.example.demo.mapper.ProgramMapper;
 import com.example.demo.service.DataService;
@@ -23,7 +24,7 @@ public class DataServiceImpl implements DataService {
 
 
     @Override
-    public CommonResult getProgramList(Integer pageNum) {
+    public CommonResult<ProgramResultList> getProgramList(Integer pageNum) {
 
         int pageSize = 5;
         int pageStart = (pageNum - 1) * pageSize;
@@ -37,11 +38,9 @@ public class DataServiceImpl implements DataService {
                 actors.append(actor.getName());
 
             }
-
             programResult.setActorList(actors.toString());
         }
-
-        return CommonResult.success(programResults);
+        return CommonResult.success(new ProgramResultList(programResults));
     }
 
     @Override
@@ -55,7 +54,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public CommonResult delete() {
+    public CommonResult delete(Integer id) {
         return null;
     }
 

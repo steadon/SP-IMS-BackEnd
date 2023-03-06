@@ -44,9 +44,9 @@ public class DataController {
     }
 
     @PostMapping("/delete/program")
-    public CommonResult delete() {
+    public CommonResult delete(@RequestBody Integer id) {
 
-        return dataService.delete();
+        return dataService.delete(id);
     }
 
 }

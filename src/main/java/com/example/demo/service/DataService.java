@@ -10,5 +10,5 @@ public interface DataService {
 
     CommonResult addProgram(AddParam param);
 
-    CommonResult delete();
+    CommonResult delete(Integer id);
 }
