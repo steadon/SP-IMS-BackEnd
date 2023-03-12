@@ -4,6 +4,11 @@
         insert into program(type_id, name, view)
         values (#{typeId}, #{name}, #{point})
     </insert>
+    <delete id="deleteOne">
+        delete
+        from program
+        where id = #{id}
+    </delete>
 
     <select id="selectAllByPage" resultType="com.example.demo.dao.result.ProgramResult">
         select p.id   as id,
@@ -12,7 +17,8 @@
                p.view as `view`
         from program p
                  left join type t on p.type_id = t.id
-            limit #{pageStart}, #{pageSize}
+            limit #{pageStart}
+           , #{pageSize}
     </select>
     <select id="selectAll" resultType="com.example.demo.dao.result.ProgramSearchResult">
         select p.id          as id,
@@ -23,7 +29,7 @@
         from program p
                  left join type t on p.type_id = t.id
                  left join program_actor_list pal on p.id = pal.program_id
-        group by pal.program_id
+        group by p.id
     </select>
     <select id="selectNewId" resultType="java.lang.Integer">
         select id

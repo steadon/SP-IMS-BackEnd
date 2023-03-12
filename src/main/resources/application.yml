@@ -6,9 +6,9 @@ spring:
     name: demo
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/sp_ims?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost/sp-ims?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
-    password: root
+    password: weibingrui1808.
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml

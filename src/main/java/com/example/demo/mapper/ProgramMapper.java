@@ -15,4 +15,6 @@ public interface ProgramMapper {
     Integer add(Integer typeId, String name, String point);
 
     Integer selectNewId();
+
+    void deleteOne(Integer id);
 }

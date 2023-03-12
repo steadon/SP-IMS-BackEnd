@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.CommonResult;
 import com.example.demo.dao.param.AddParam;
+import com.example.demo.dao.param.DeleteParam;
+import com.example.demo.dao.result.ProgramResultList;
 import com.example.demo.service.DataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class DataController {
 
 
     @GetMapping("/get/programList")
-    public CommonResult getProgramList(@RequestParam Integer pageNum) {
+    public CommonResult<ProgramResultList> getProgramList(@RequestParam Integer pageNum) {
 
         return dataService.getProgramList(pageNum);
     }
@@ -38,15 +40,15 @@ public class DataController {
     }
 
     @PostMapping("/add/program")
-    public CommonResult addProgram(@RequestBody @Valid AddParam param) {
+    public CommonResult<String> addProgram(@RequestBody @Valid AddParam param) {
 
         return dataService.addProgram(param);
     }
 
     @PostMapping("/delete/program")
-    public CommonResult delete(@RequestBody Integer id) {
+    public CommonResult<String> delete(@RequestBody DeleteParam param) {
 
-        return dataService.delete(id);
+        return dataService.delete(param.getId());
     }
 
 }

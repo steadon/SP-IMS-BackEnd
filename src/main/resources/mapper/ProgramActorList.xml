@@ -4,4 +4,9 @@
         insert into program_actor_list(program_id, actor_id)
         values (#{programId}, #{actorId})
     </insert>
+    <delete id="deleteOne">
+        delete
+        from program_actor_list
+        where program_id = #{id};
+    </delete>
 </mapper>
