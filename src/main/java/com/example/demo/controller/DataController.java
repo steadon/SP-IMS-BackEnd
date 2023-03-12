@@ -4,6 +4,8 @@ import com.example.demo.dao.CommonResult;
 import com.example.demo.dao.param.AddParam;
 import com.example.demo.dao.param.DeleteParam;
 import com.example.demo.dao.result.ProgramResultList;
+import com.example.demo.dao.result.ProgramSearchResult;
+import com.example.demo.dao.result.ProgramSearchResultList;
 import com.example.demo.service.DataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class DataController {
     }
 
     @GetMapping("/get/search")
-    public CommonResult search(@RequestParam(required = false, defaultValue = "0") Integer type, @RequestParam(required = false, defaultValue = "0") Integer num, @RequestParam(required = false, defaultValue = "") String name) {
+    public CommonResult<ProgramSearchResultList> search(@RequestParam(required = false, defaultValue = "0") Integer type, @RequestParam(required = false, defaultValue = "0") Integer num, @RequestParam(required = false, defaultValue = "") String name) {
 
         return dataService.search(type, num, name);
     }
