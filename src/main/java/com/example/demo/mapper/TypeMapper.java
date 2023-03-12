@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface TypeMapper {
-    void addType(String type);
+    Integer addType(String type);
 
     String selectName(Integer typeId);
 

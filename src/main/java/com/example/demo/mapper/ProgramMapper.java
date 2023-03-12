@@ -16,5 +16,5 @@ public interface ProgramMapper {
 
     Integer selectNewId();
 
-    void deleteOne(Integer id);
+    Integer deleteOne(Integer id);
 }

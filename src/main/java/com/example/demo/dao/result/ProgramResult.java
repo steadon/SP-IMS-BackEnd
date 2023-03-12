@@ -12,6 +12,5 @@ public class ProgramResult implements Serializable {
     private String typeName;
     private String name;
     private String view;
-
     private String actorList;
 }

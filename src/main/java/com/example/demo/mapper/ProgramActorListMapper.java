@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ProgramActorListMapper {
-    void addOne(Integer programId, Integer actorId);
+    Integer addOne(Integer programId, Integer actorId);
 
-    void deleteOne(Integer id);
+    Integer deleteOne(Integer id);
 }

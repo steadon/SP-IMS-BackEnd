@@ -13,5 +13,5 @@ public interface ActorMapper {
 
     Integer selectNewId();
 
-    void addActor(String name);
+    Integer addActor(String name);
 }
